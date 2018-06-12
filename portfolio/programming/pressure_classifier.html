@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pressure Classifier</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/flexslider.css" rel="stylesheet" >
+    <link href="../../css/queries.css" rel="stylesheet">
+    <link href="../../css/2-col-portfolio.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../css/animate.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Pressure Classifier <small>Experimental Capture | Spring 2017</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <iframe width="768" height="432" src="https://www.youtube.com/embed/eCfKu0lOXdk" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-md-4 digital">
+                <div class="docs">
+                  <h3>Collaboration with Jason Ma</h3>
+                </div>
+                <div class="docs">
+                  <h3>Initial Ideas</h3>
+                  <p>We were inspired by the potential of what the SenselMorph, a pressure sensor module, could do. With the SenselMorph we will be able to identify not only the physical shapes and surfaces of the objects that touch the sensor, but also the distribution of pressure.  With this idea in mind, we wanted to investigate how “identifiable” certain aspects of our body can be from others. The project was in part an exploration of machine learning, as well as what kind of new use cases we could project onto it.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 docs digital">
+              <h3>Inspiration</h3>
+              <p>I was inspired by Philipp Schmitt’s <a href="http://philippschmitt.com/projects/camera-restricta">Camera Restricta</a>, and wanted to use a similar method of crowd sourcing data while using geolocations. Therefore, I made a machine that given a latitude longitude coordinate and a picture taken at the location, will crowd source pictures that people have posted online and fuse them to create a single picture of the location. Thus, this is a camera that takes pictures of what other people has taken.</p>
+
+          </div>
+          <div class="col-md-6 docs digital">
+              <h3>Collecting Data</h3>
+              <p>
+              First, I wrote a Python script using <a href="https://temboo.com/library/Library/Flickr/">Temboo/Flikr API</a> to extract all the information I needed given a latitude longitude coordinate as input. I was able to get over thousands of images with one coordinate if the location is a popular spot, which was exactly what I wanted. I then wrote another Python script to download all these images and save it somewhere in my laptop.
+              </p>
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 digital">
+              <div class="docs">
+                <h3>Finding Relevant Images: ofxTSNE</h3>
+                <p>This was when I realized that it wasn’t realistic to use all the pictures in one location, because people upload
+                   such drastically different pictures. I had to figure out a way to "choose" the pictures that looked closest to the
+                  “picture I am taking”. With my professor's help, I was able to use the Openframeworks add-on
+                  <a href="https://github.com/genekogan/ofxTSNE">ofxTSNE</a> to create a grid that sorts all the photos by similarities.
+                </p>
+              </div>
+              <div class="docs">
+                <h3>Generating Images & Final Results</h3>
+                <p>
+                Finally I used a 7×7 grid to find the closest 49 pictures in the TSNE grid from a given image (the initial image that I took), and put these batch of pictures into <a href="www.kolor.com/autopano/
+                ">Autopano</a>, a image stitching software. The results turned out better than I thought. Some were fairly normal, and just looked like a shitty panorama job, and others turned out super interesting. Above are some results with anti-ghost and simple settings.
+
+                </p>
+              </div>
+          </div>
+
+          <div class="col-md-6 docs digital">
+            <img class="width-100" src="../../img/tsne.png">
+
+          </div>
+
+        </div>
+        <!-- Projects Row -->
+<!--
+        <div class="row porfolio-view">
+          <div class="col-sm-4 text-center">
+            <div class="overlay-effect effects clearfix">
+              <div class="img">
+                <img src="../../img/geo_camera.jpg" alt="Portfolio Item">
+                <div class="overlay">
+                  <a href="portfolio/drawings/01.html" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                  <a class="close-overlay hidden">x</a>
+                </div>
+              </div>
+            </div>
+            <h2>geo camera</h2>
+          </div>
+          <div class="col-sm-4 text-center">
+            <div class="overlay-effect effects clearfix">
+              <div class="img">
+                <img src="../../img/pressure_classifier.jpg" alt="Portfolio Item">
+                <div class="overlay">
+                  <a href="portfolio/drawings/01.html" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                  <a class="close-overlay hidden">x</a>
+                </div>
+              </div>
+            </div>
+            <h2>pressure classifier</h2>
+          </div>
+          <div class="col-sm-4 text-center">
+            <div class="overlay-effect effects clearfix">
+              <div class="img">
+                <img src="../../img/equerry.png" alt="Portfolio Item">
+                <div class="overlay">
+                  <a href="portfolio/drawings/01.html" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                  <a class="close-overlay hidden">x</a>
+                </div>
+              </div>
+            </div>
+            <h2>Equerry</h2>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-sm-4 text-center">
+            <div class="overlay-effect effects clearfix">
+              <div class="img">
+                <img src="../../img/portfolio01.jpg" alt="Portfolio Item">
+                <div class="overlay">
+                  <a href="portfolio/drawings/01.html" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                  <a class="close-overlay hidden">x</a>
+                </div>
+              </div>
+            </div>
+            <h2>geo camera</h2>
+          </div>
+          <div class="col-sm-4 text-center">
+            <div class="overlay-effect effects clearfix">
+              <div class="img">
+                <img src="../../img/portfolio01.jpg" alt="Portfolio Item">
+                <div class="overlay">
+                  <a href="portfolio/drawings/01.html" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                  <a class="close-overlay hidden">x</a>
+                </div>
+              </div>
+            </div>
+            <h2>project1</h2>
+          </div>
+          <div class="col-sm-4 text-center">
+            <div class="overlay-effect effects clearfix">
+              <div class="img">
+                <img src="../../img/portfolio01.jpg" alt="Portfolio Item">
+                <div class="overlay">
+                  <a href="portfolio/drawings/01.html" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                  <a class="close-overlay hidden">x</a>
+                </div>
+              </div>
+            </div>
+            <h2>project1</h2>
+          </div>
+        </div> -->
+
+        <!-- Pagination -->
+        <!-- <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="./02.html">2</a>
+                    </li>
+                    <li>
+                        <a href="03.html">3</a>
+                    </li>
+                    <li>
+                        <a href="04.html">4</a>
+                    </li>
+
+                    <li>
+                        <a href="04.html">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+        <!-- /.row -->
+
+
+    </div>
+
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../js/waypoints.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/jquery.flexslider.js"></script>
+    <script src="../../js/modernizr.js"></script>
+    <script src="jssor.slider.min.js"></script>
+
+
+</html>
