@@ -71,45 +71,64 @@
         </div>
 
         <div class="row">
-          <div class="col-md-6 docs digital">
-              <h3>Inspiration</h3>
-              <p>I was inspired by Philipp Schmitt’s <a href="http://philippschmitt.com/projects/camera-restricta">Camera Restricta</a>, and wanted to use a similar method of crowd sourcing data while using geolocations. Therefore, I made a machine that given a latitude longitude coordinate and a picture taken at the location, will crowd source pictures that people have posted online and fuse them to create a single picture of the location. Thus, this is a camera that takes pictures of what other people has taken.</p>
+          <div class="col-md-4 docs digital">
+              <h3>Tools</h3>
+              <p><a href="http://www.sensel.com/">Sensel Morph</a>: Collecting data</p>
+              <p><a href="http://pytorch.org/">Pytorch</a>: Training the model</p>
+              <p><a href="openframeworks.cc">OpenFrameworks</a>: Building the app</p>
+              <p><a href="https://www.meteor.com/">MeteorJS</a>: Data Visualization</p>
+
 
           </div>
-          <div class="col-md-6 docs digital">
-              <h3>Collecting Data</h3>
-              <p>
-              First, I wrote a Python script using <a href="https://temboo.com/library/Library/Flickr/">Temboo/Flikr API</a> to extract all the information I needed given a latitude longitude coordinate as input. I was able to get over thousands of images with one coordinate if the location is a popular spot, which was exactly what I wanted. I then wrote another Python script to download all these images and save it somewhere in my laptop.
-              </p>
+          <div class="col-md-8 docs digital">
+              <h3>Training</h3>
+              <p>In order to train a robust neural net, we needed several hundreds of photos. However, since the event we are recording is fairly short, repeating the event over and over wasn’t too hard. To further expedite this process, we made it so that our script can automatically save images when it detects that the event has “ended”. Across four people, we gathered about 400 sample images, and after removing poor samples, we ended with about 300. In hindsight, we probably should have trained it on much more data samples, but for the purposes of the assignment, 300 was more than sufficient.</p>
+              <p>With Pytorch, we were able to implement a convolutional neural network in Python and build a model using the 1200 train images that were collected. <a href="http://cs231n.github.io/convolutional-networks/">Here</a> is more theoretical and technical information on Convolutional Neural Networks.</p>
 
 
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-6 digital">
+
+          <div class="col-md-8 digital">
               <div class="docs">
-                <h3>Finding Relevant Images: ofxTSNE</h3>
-                <p>This was when I realized that it wasn’t realistic to use all the pictures in one location, because people upload
-                   such drastically different pictures. I had to figure out a way to "choose" the pictures that looked closest to the
-                  “picture I am taking”. With my professor's help, I was able to use the Openframeworks add-on
-                  <a href="https://github.com/genekogan/ofxTSNE">ofxTSNE</a> to create a grid that sorts all the photos by similarities.
-                </p>
+                <h3>Results</h3>
+                  <p>When training a neural net, there is a concept called “epochs”, which is essentially how long we want to train the data for. If we overtrain the data, we suffer from something called over fitting, which is basically when the model is too hard coded on just recognizing the training data, and will fail to recognize any other external picture that isn’t identical to any of its training data. Therefore, to get the best results, we had to play around with how long we want to train the data. Overall, the results were around 85% –  90% accuracy, which is over our expectations.</p>
               </div>
               <div class="docs">
-                <h3>Generating Images & Final Results</h3>
-                <p>
-                Finally I used a 7×7 grid to find the closest 49 pictures in the TSNE grid from a given image (the initial image that I took), and put these batch of pictures into <a href="www.kolor.com/autopano/
-                ">Autopano</a>, a image stitching software. The results turned out better than I thought. Some were fairly normal, and just looked like a shitty panorama job, and others turned out super interesting. Above are some results with anti-ghost and simple settings.
-
-                </p>
+                <h3>Conclustion</h3>
+                <p>Once we were able to classify hands/feet, we were able to confirm our hypothesis that every hand is unique and are identifiable just like fingerprint. As we worked on this project, we’ve realized that thsi could have many more applications than just classifying hand and feet. Some other use cases include: butt classification for sit-down establishments like restaurants and barber shops, front door mat classifiers to identify visitors, and so on. We are optimistic from how accurate our foot and hand classifications ended up, and we definitely plan on thinking of more use cases for it.</p>
               </div>
-          </div>
-
-          <div class="col-md-6 docs digital">
-            <img class="width-100" src="../../img/tsne.png">
 
           </div>
+          <div class="col-md-4 docs digital">
+            <h3>Training Participants</h3>
+            <div class="row docs">
+              <div class="col-md-6 text-center">
+                <img class="width-100" src="../../img/Changning-150x150.png">
+                <p>Changning</p>
+              </div>
+              <div class="col-md-6 text-center">
+                <img class="width-100" src="../../img/Jason-150x150.png">
+                <p>Jason</p>
+              </div>
+            </div>
+
+            <div class="row docs">
+              <div class="col-md-6 text-center">
+                <img class="width-100" src="../../img/Rohan-150x150.png">
+                <p>Rohan</p>
+              </div>
+              <div class="col-md-6 text-center">
+                <img class="width-100" src="../../img/Kristin-150x150.png">
+                <p>Kristin</p>
+              </div>
+            </div>
+
+          </div>
+
+
 
         </div>
         <!-- Projects Row -->
