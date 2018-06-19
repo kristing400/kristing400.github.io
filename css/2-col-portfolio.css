@@ -40,13 +40,15 @@ body {
 .pagination>li>a{
     color:rgba(61, 201, 179, 1);
 }
-.pagination>li>span {
-    border: rgba(61, 201, 179, 1);
-    background-color: rgba(61, 201, 179, 1);
+.pagination a{
+	border:0 !important;
+}
+.pagination a{
+    background-color: inherit !important;
 }
 
 .pagination>li.active>a{
-	background-color: rgba(61, 201, 179, 1);
+	background-color: rgba(61, 201, 179, 1) !important;
 	color: #fff
 }
 .education h2{

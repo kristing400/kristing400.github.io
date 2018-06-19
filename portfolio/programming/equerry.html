@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Equerry</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/flexslider.css" rel="stylesheet" >
+    <link href="../../css/queries.css" rel="stylesheet">
+    <link href="../../css/2-col-portfolio.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../css/animate.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Equerry <small>TartanHacks 2018: Best Social Impact Award | Spring 2018</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="docs">
+            <div class="col-md-6">
+              <h3>Have you ever been in an awkward social situation?</h3>
+              <p>Equerry is a wearable tech that gets users out of awkward social situations, or in extreme cases, emergency situations. If the user is in an awkward social situation,
+                Equerry will pick up customizable voice triggers, and make a call to your cell phone from maybe "a significant other". While in an emergency situation,
+                Equerry will call the police, and text your loved ones to let them know you need assistance.</p>
+              <h3>Team Members</h3>
+              <p>Christina Ou: Software Engineer</p>
+              <p>Ken Situ: Designer</p>
+              <p>Kristin Yin: Software Engineer</p>
+              <p>Tiffany Zhu: Software Engineer<p>
+              <div class="docs" style="display:inline-block;">
+                <a href="https://github.com/christinaou/tartanhacks" class="github_links">Github Link</a>
+              </div>
+            </div>
+
+            <div class="col-md-3 text-center">
+                <h3>Home Screen</h3>
+                <img class="width-100" src="../../img/equerry_home.png">
+            </div>
+
+
+            <div class="col-md-3 text-center">
+                <h3>Customize Voice Triggers</h3>
+                <img class="width-100" src="../../img/equerry03.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="docs">
+
+            <div class="col-md-3 text-center">
+                <h3>Onboarding Process: Intro</h3>
+                <img class="width-100" src="../../img/equerry01.png">
+            </div>
+
+            <div class="col-md-3 text-center">
+                <h3>Onboarding Process: Basic Info</h3>
+                <img class="width-100" src="../../img/equerry02.png">
+            </div>
+            <div class="col-md-3 text-center">
+                <h3>Emergency Contact</h3>
+                <img class="width-100" src="../../img/equerry04.png">
+            </div>
+            <div class="col-md-3 text-center">
+                <h3>Neighborhood Saftey Map</h3>
+                <img class="width-100" src="../../img/equerry_map.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="row docs text-center">
+          <h3>Ideation & Storyboarding</h3>
+            <div class="row docs">
+                <div class="col-md-4 ">
+                    <img class="width-100" src="../../img/equerry_storyboard_1.jpg">
+                </div>
+
+                <div class="col-md-4">
+                    <img class="width-100" src="../../img/equerry_storyboard_2.jpg">
+                </div>
+                <div class="col-md-4">
+                    <img class="width-100" src="../../img/equerry_storyboard_3.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 docs">
+            <h3>Tools</h3>
+            <p><a href="https://p5js.org/">p5.js</a>: Sends audio clip from Equerry device.</p>
+            <p><a href="https://www.djangoproject.com/">Django</a>: Web Framework</p>
+            <p><a href="https://www.twilio.com/docs/">Twilio API</a>: Making calls and texts</p>
+            <p><a href="https://cloud.google.com/speech-to-text/">Google Voice Recognition</a>: Performing speech to text</p>
+            <p><a href="https://cloud.google.com/maps-platform/">Google Maps API</a>: Show potentially dangerous areas</p>
+          </div>
+          <div class="col-md-8 docs">
+            <h3>How does it work & what does it do?</h3>
+            <p>
+              1. The user starts by setting up his/her profile and configuring the customizable trigger words (which can be changed anytime as well).<br>
+              2. The Equerry device (in our case a phone) picks up on any sounds greater than a certain threshold, and sends that voice clip to our server.<br>
+              3. Our server will compute speech to text detection on the voice clip and check for any trigger words that match the user's configuration settings.<br>
+              4. If there is a match, Twilio API will be used to either call the cops and send texts to the user's emergency contacts in an emergency situation, or call the user's phone in an awkward social situation.<br>
+              Other features: The app also included a map page that shows potentially dangerous areas that other users have had emergency situations in.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 docs">
+            <h3>Results & what we learned</h3>
+            <p>
+              The exciting part is that we ended up winning Facebook's Best Social Impact Award, and were invited to Facebook's hackathon which will be held in November 2018.
+              We were very satisfied that we were able to create a working demo in under 24 hrs and nothing was hardcoded (other than the map points lol since we don't actually have real data).
+              However, we did realize that we spent a lot of time perfecting the onboarding process even though it is not the main focus of Equerry. Since, we had to keep our demos short,
+              we were barely able to show the judges the actual app design and onboarding process. Therefore, we learned that next time we should priortize our time based on the importance
+              of the feature, and think about how we would demo our project.
+            </p>
+          </div>
+          <div class="col-md-4 docs">
+            <h3>Inspiration!</h3>
+            <p>We got our idea from Queen Elizabeth II! When the queen tries to get out of a social situation, she would move her bag from one hand to the other, and this secret code will let her
+              staff know to swoop in and end the conversation.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 docs">
+            <img class="width-100" src="../../img/tartanhacks.jpg">
+          </div>
+          <div class="col-md-6 docs">
+            <h3>Future Ideas</h3>
+            <p>Although we probably wouldn't get another change to work on the project, we did brainstorm many potential ideas for future steps! One of them we actually did start to implement,
+              the map feature that tells users areas that other people have had emergency situations in. We thought this could be a good way to help people determine which heighborhoods
+              or streets are higher risk zones than others. Another feature that we thought would be important in a real life emergency situation is being able to send location and recordings to the police,
+              so that they are able to get more information on the situation and get to the user as soon as possible.
+            </p>
+          </div>
+        </div>
+
+    </div>
+    <footer>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script></p>
+    </footer>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../js/waypoints.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/jquery.flexslider.js"></script>
+    <script src="../../js/modernizr.js"></script>
+    <script src="jssor.slider.min.js"></script>
+
+
+</html>
