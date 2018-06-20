@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Self-Driving Cozmo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../css/flexslider.css" rel="stylesheet" >
+    <link href="../../css/queries.css" rel="stylesheet">
+    <link href="../../css/2-col-portfolio.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../css/animate.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-fixed-top" style="background-color: inherit; border-bottom-width:0 "role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                      <a href="../../index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="../../index.html#intro">ABOUT ME</a>
+                    </li>
+                    <li>
+                        <a href="main.html">PROGRAMMING</a>
+                    </li>
+                    <li>
+                        <a href="../drawings/01.html">DRAWINGS</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Self-Driving Cozmo <small>Cognitive Robotics | Spring 2018</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="row docs">
+            <div class="col-md-8">
+                <iframe width="740" height="480" src="https://www.youtube.com/embed/MXsPVDGYFY8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-4">
+                <h3>Collaboration with Jason Ma</h3>
+                <h3>Overview</h3>
+                <p>We trained Anki's Cozmo robot to follow a line by training camera images through a Convolutional Neural Net. We labeled the training images with steering angles by manually driving the robot on a course.
+                We tried a couple of different ways to train the model in order to increase accuracy, including augmenting training images and trying different combinations of numbers of convolutional and fully connected layers.
+                The model with the best results has 5 convolutional layers and 4 fully connected layers with ~5000 images.</p>
+
+                <div class="docs" style="display:inline-block;">
+                  <a href="https://github.com/kristing400/Self-Driving-Cozmo" class="github_links">Github Link</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 docs ">
+              <h3>Training & Processing</h3>
+              <p>
+                We were able to train up the model using 120x160 images, instead of our original 300x300. However, we were running into weird cozmo(?) bugs where the camera would somehow get really delayed, even though the only code we change was reshaping the matrix to fit the new model.</p>
+                <p>It took around 30 minutes to train 50 epochs</p>
+                <p>Training size was around 5000 images</p>
+                <p>Processing time took 0.33 sec.
+              </p>
+
+          </div>
+          <div class="col-md-8 docs">
+              <img class="width-100" src="../../img/cozmo_model.png">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 docs">
+            <img class="width-100" src="../../img/cozmo_confident.png">
+          </div>
+          <div class="col-md-6 docs ">
+            <div class="width-100">
+              <img class="width-100" src="../../img/cozmo_not_confident.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 docs">
+            <img class="width-100" src="../../img/cozmo_conv_layer.png">
+          </div>
+          <div class="col-md-4 docs ">
+            <h3>Challenges: Running the Robot</h3>
+            <p>
+              We performed several optimisations with regards to how we actually run our neural net.
+              Our RunCNN.fsm script has two parallel threads running at the same time. One thread runs the cnn and updates a globally shared weight variable w.
+              The second thread reads in the most current weight variable, and it performs a steering command based on w. By doing so, cozmo is able to effectively run without any noticeable jitters.
+              The cnn on average updates around 3 times per second.
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 docs ">
+            <h3>Challenges: Correcting Itself</h3>
+            <p>
+              Since we only train cozmo “perfectly” on the course, it never learns how to correct itself if it were to drive off the course. Our naive implementation was to check for a confidence
+              level as it drives and if it is lower a threshold, it would go into “recovery mode”.
+              In this mode, the cozmo will backup until its confidence level is above the threshold again.
+            </p>
+          </div>
+
+          <div class="col-md-4 docs ">
+            <h3>Challenges: Training the CNN</h3>
+            <p>
+              We tried many different ways to try improving the performance, including
+              augmenting the images: offsetting and flipping each training image to create more training data (didn’t improve performance),
+              using a gaussian as the target output pattern instead of one hot (improved performance), and
+              trying different combinations of numbers of convolutional layers and fully connected layers (didn’t improve performance).
+            </p>
+          </div>
+
+          <div class="col-md-4 docs ">
+            <h3>Future Extensions</h3>
+            <p>
+              Improving the performance: we can analyze the weights of each layer of the neural net to see what cozmo learned<br>
+              Let cozmo identify and drive on forks and intersections<br>
+              Let cozmo drive faster<br>
+              Identify obstacles or obstructions
+            </p>
+          </div>
+        </div>
+
+
+
+    </div>
+    <footer>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script></p>
+    </footer>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../js/waypoints.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/jquery.flexslider.js"></script>
+    <script src="../../js/modernizr.js"></script>
+    <script src="jssor.slider.min.js"></script>
+
+
+</html>
