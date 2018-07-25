@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>wickihow.xyz</title>
+    <title>Virtual Rube-Goldberg Machine</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -76,56 +76,50 @@
         <!-- Page Header -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><a href="http://www.wickihow.xyz">www.wickihow.xyz</a> <small>Modding & Remixing | Fall 2017</small>
+                <h1 class="page-header">Escape the Room: Parallel Universes <small>Experimental Game Design | Fall 2016</small>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
         <div class="row docs">
             <div class="col-md-8">
-                <a href="http://www.wickihow.xyz"><img class="width-100" src="../../img/wickihow.jpg"></a>
+                <iframe width="750" height="432" src="https://www.youtube.com/embed/zykVR07JzWo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
             <div class="col-md-4">
-                <h3>What is it?</h3>
+              <div class="docs">
+                <h3>Collaboration with Jason Ma</h3>
+              </div>
+              <div>
                 <p>
-                  I created a mock website (like the name suggests) of wikihow.com. I thought it would be fun and funny if users would "accidently"
-                  stumble upon my website looking for wikihow advices but only end up with really bad advises. My web app will let the user ask
-                  any question that they wish to be answered like wikihow.com, but instead generate a page of somewhat random advices (explained below). In order
-                  to make the wikihow article feel and seem like a real one at first glance, I scraped real wikihow articles and saved them into a table, then have my webapp
-                  pick senteces and pictures from this table.
+                  This is a co-op escape the room game built in <a href="https://unity3d.com/">Unity</a>. We wanted to explore a non-traditional gaming style, where players
+                  have to communicate with each other through speech in order to win. In this escape the room game, two players are stuck in the same room in a parallel universe.
+                  Each player is given a seperate laptop. At initial glance, it looks like the two players are stuck inn the same room. However, as they communicate they will realize
+                  that the rooms are slightly different. They need to work together, find clues in the room, and figure out with objects are the keys to escape from the room. Of course,
+                  the players are not allowed to look at each other's screens.
                 </p>
-                <div class="docs" style="display:inline-block;">
-                  <a href="https://github.com/kristing400/wickiHow" class="github_links">Github Link</a>
-                </div>
-                <div class="docs" style="display:inline-block;">
-                  <a href="http://www.wickihow.xyz" class="github_links">www.wickihow.xyz</a>
-                </div>
+              </div>
             </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-6 docs ">
-                <h3>Tools</h3>
-                <p>
-                  <a href="https://www.djangoproject.com/">Django</a>: web framework<br>
-                  <a href="https://cheerio.js.org/">cheerio</a>: webscraping<br>
-                  <a href="https://www.nltk.org/">NLTK</a>: natural language processing library<br>
-                </p>
-                <br>
-                <h3>Generating articles</h3>
-                <p>
-                  Because I wanted to "trick" the user to thinking my website is wikihow.com, I thought it would be interesting if
-                  the articles would gradually get more random as the user reads on. Therefore, I used NLTK, a natural processing library to
-                  look for similar words from the user's query in the database when generating the articles. However, this did not turn out
-                  as well as I expected, since I did not have a efficient way to search for similar words/sentences through the database. Therefore, for now I linked
-                  some <a href="http://www.wickihow.xyz/?title=How%20to%20Text%20Your%20Girlfriend">pre-generated pages</a> from the home page of my website that attempted to create gradually more random articles.
-                </p>
+        <div class="row docs">
+          <div class="col-md-4 style="display:inline-block; float:none; vertical-align:middle;" ">
+            <div>
+              <p>
+                Every clue in the game requires the players to communicate. A clue in a room may also require a trigger from the other room. For example, in this
+                gif, the player in the second room needs to look at the painting in his/her room for the painting in the first room to reveal a
+                clue. Unfortunately, I wasn't able to capture a gameplay of both rooms... However, you will be able to download the game below (you will need room1 on one computer and room2 on another for either versions).
+              </p>
+              <div class="docs" style="display:inline-block;">
+                <a href="https://drive.google.com/drive/folders/0B-weBJf14mHxUkhIR1NRRVZSUk0?usp=sharing" class="github_links">Download Link</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div style="width:100%;height:0;padding-top: 5%; padding-bottom:32%;position:relative;"><iframe src="https://giphy.com/embed/31P5V5Dk7zu7g7CCHY" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/31P5V5Dk7zu7g7CCHY"></a></p>
+          </div>
 
-          </div>
-          <div class="col-md-6 docs">
-              <img class="width-100" src="../../img/wickihow_2.jpg">
-          </div>
         </div>
+
     </div>
     <footer>
       <p>&copy; <script>document.write(new Date().getFullYear())</script></p>
